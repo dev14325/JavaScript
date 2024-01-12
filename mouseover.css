@@ -1,0 +1,12 @@
+#change {
+    display: grid;
+    place-items: center;
+    height: 140px;
+    width: 140px;
+    border: 1px solid black;
+    background-color: burlywood;
+    color: black;
+    text-align: center;
+    
+}
+
