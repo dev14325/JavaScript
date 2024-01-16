@@ -50,41 +50,41 @@ pending , resolve , rejected
 
 
         // promise chaining 
-       function asyncFunc1(){
-        return new Promise((resolve,reject)=>{
-            setTimeout(()=>{
-                console.log('data 1');
-                resolve('success');
+    //    function asyncFunc1(){
+    //     return new Promise((resolve,reject)=>{
+    //         setTimeout(()=>{
+    //             console.log('data 1');
+    //             resolve('success');
 
-            },4000)
+    //         },4000)
 
-        })
-       }
+    //     })
+    //    }
 
-       function asyncFunc2(){
-        return new Promise((resolve,reject)=>{
-            setTimeout(()=>{
-                console.log('data 2');
-                resolve('success');
-            },4000)
+    //    function asyncFunc2(){
+    //     return new Promise((resolve,reject)=>{
+    //         setTimeout(()=>{
+    //             console.log('data 2');
+    //             resolve('success');
+    //         },4000)
 
-        })
-       }
+    //     })
+    //    }
 
 
 
-       console.log('fethcing data 1...')
-       let p1 = asyncFunc1();
+    //    console.log('fethcing data 1...')
+    //    let p1 = asyncFunc1();
        
-       p1.then((res)=>{
-        // console.log(res);
-        console.log('fethcing data 2...')
-        let p2 = asyncFunc2();
-        p2.then((res)=>{
+    //    p1.then((res)=>{
+    //     // console.log(res);
+    //     console.log('fethcing data 2...')
+    //     let p2 = asyncFunc2();
+    //     p2.then((res)=>{
 
-        })
+    //     })
 
-       })
+    //    })
 
 
     //    function asyncFunc2(){
@@ -108,6 +108,52 @@ pending , resolve , rejected
        // Both the data is coming togther --- we need data one after another 1st data1 then data2
 
 
+
+     function getData(id){
+        return new Promise((resolve,reject)=>{
+          
+            setTimeout(()=>{
+                console.log('Data is flowing for id : ' , id);
+                resolve('success');
+
+            },2000)
+
+        })
+     }
        
+
+//   console.log('fetching data 1');
+
+//   getData(1).then((res)=>{
+//     console.log('fetching data 2');
+//      return getData(2);
+
+//   }).then((res)=>{
+//     console.log('fetching data 3');
+//     return getData(3);
+
+//   }).then((res)=>{
+//     console.log(res);
+    
+
+//   });
+
+       
+// async await 
+
+async function getAllData() {
+    console.log('fetching data 1');
+    await getData(1);
+
+    console.log('fetching data 2');
+    await getData(2);
+
+    console.log('fetching data 3');
+    await getData(3);
+
+    console.log('fetching data 4');
+    await getData(4);
+}
+
 
 
